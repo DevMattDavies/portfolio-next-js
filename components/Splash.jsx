@@ -1,18 +1,11 @@
-import {
-  SplashContainer,
-  IconContainer,
-  SplashMenuContainer,
-} from "../components/Containers.styles";
+import { SplashContainer } from "../components/Containers.styles";
 
-import SplashIcons from "./SplashIcons";
+import SplashMenu from "./SplashMenu";
 
 function Splash() {
   return (
     <SplashContainer>
-        <SplashIcons />
-      <SplashMenuContainer>
-        <h1>Menu</h1>
-      </SplashMenuContainer>
+      <SplashMenu />
     </SplashContainer>
   );
 }

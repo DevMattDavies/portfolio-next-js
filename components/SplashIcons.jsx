@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import GlobalStyle from "../GlobalStyles.styles";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
@@ -14,9 +13,16 @@ export const SplashIconLine = styled.div`
 
 const StyledIcon = styled.a`
   color: var(--secondary);
-  margin: 5px 0;
+  margin: 10px 0;
   display: flex;
   flex-direction: column;
+  padding: 0 10px;
+
+  &:hover {
+    color: var(--highlight);
+    cursor: pointer;
+  }
+
 `;
 
 function SplashIcons() {

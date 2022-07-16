@@ -5,6 +5,7 @@ const GlobalStyle = createGlobalStyle`
   --primary: #13182D;
   --secondary: #69b3ac;
   --highlight:  rgb(182,188,189);
+  ${"" /* --highlight: #E38F76; */}
   --box-shadow-secondary: rgba(105, 179, 172, 0.5);
   --font-primary: "Futura PT";
   --font-secondary: "Operator Mono";
@@ -57,6 +58,7 @@ a {
 
 * {
   box-sizing: border-box;
+  font-family: var(--font-primary);
   font-size: 1rem;
   padding: 0;
   margin: 0;
