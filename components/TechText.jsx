@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { SectionText } from "../components/SectionText.styles";
-import { techTextContent } from "../text-content/text-content";
+import { techTextContent } from "../data/text-content/text-content";
 
 const TechTextContent = styled.p`
   color: var(--highlight);

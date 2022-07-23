@@ -9,10 +9,11 @@ import "@splidejs/react-splide/css/skyblue";
 
 const SlideContainer = styled.div`
   display: flex;
-  width: 100%;
+  width: 95%;
   height: 100%;
   gap: 2rem;
   padding-bottom: 5rem;
+  margin: 0 auto;
 
   &:hover {
     cursor: grab;
@@ -22,7 +23,7 @@ const SlideContainer = styled.div`
 const LeftSlideContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 50%;
   height: 100%;
   gap: 2rem;
   margin-top: 1rem;
@@ -30,13 +31,30 @@ const LeftSlideContainer = styled.div`
 const RightSlideContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 50%;
   gap: 1rem;
 `;
 
 const SlideIconContainer = styled.div`
   display: flex;
+  flex-wrap: wrap;
   gap: 1.2rem;
+  padding-left: 1rem;
+  max-width: 90%;
+  position: relative;
+`;
+
+const ProjectImageWrapper = styled.div`
+  -webkit-box-shadow: -15px 25px 0px -10px var(--primary),
+    20px -20px 0px -20px var(--primary), 20px -20px -0px -10px var(--primary),
+    -20px 20px 0px -10px var(--primary), 0px 0px 0px 5px var(--secondary),
+    25px 25px 15px 5px rgba(0, 0, 0, 0);
+
+  box-shadow: -15px 25px 0px -10px var(--primary),
+    20px -20px 0px -20px var(--primary), 20px -20px -0px -10px var(--primary),
+    -20px 20px 0px -10px var(--primary), 0px 0px 0px 5px var(--secondary),
+    25px 25px 15px 5px rgba(0, 0, 0, 0);
+  padding: 1rem;
 `;
 
 const ProjectImageStyle = {
@@ -78,22 +96,22 @@ const ProjectText = styled.p`
 function Projects() {
   return (
     <SectionContainer>
-      <SectionTitle>Projects</SectionTitle>
+        <SectionTitle>Projects</SectionTitle>
       <SectionContentContainer>
         <Splide
           aria-label="My Projects"
           options={{
-            // type: "loop",
-            // rewind: true,
-            // rewindByDrag: true,
-            // autoplay: true,
-            // interval: 8000,
+            type: "loop",
+            rewind: true,
+            rewindByDrag: true,
+            autoplay: true,
+            interval: 10000,
             speed: 2000,
             arrows: false,
-            // pauseOnHover: true,
+            pauseOnHover: true,
             width: "100%",
             height: "100%",
-            gap: "1rem",
+            // gap: "1rem",
             drag: true,
           }}
         >
@@ -102,7 +120,9 @@ function Projects() {
               <SplideSlide>
                 <SlideContainer>
                   <LeftSlideContainer>
-                    <Image src={slide.src} style={ProjectImageStyle}></Image>
+                    <ProjectImageWrapper>
+                      <Image src={slide.src} style={ProjectImageStyle}></Image>
+                    </ProjectImageWrapper>
                     <SlideIconContainer>
                       {Object.values(slide.icons).map((icon) => {
                         return (

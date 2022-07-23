@@ -10,14 +10,15 @@ export const SectionText = styled.div`
   /* -webkit-box-shadow: 8px 8px var(--box-shadow-secondary);
   -moz-box-shadow: 8px 8px var(--box-shadow-secondary);
   box-shadow: 8px 8px var(--box-shadow-secondary); */
-  -webkit-box-shadow: 0px 20px 0px -10px var(--primary),
-    0px -20px 0px -10px #ffffff, 20px 0px 0px -10px #ffffff,
-    -20px 0px 0px -10px #ffffff, 0px 0px 0px 10px #ff0000,
-    5px 5px 15px 5px rgba(0, 0, 0, 0);
-  box-shadow: -15px 25px 0px -10px var(--primary),
-    20px -20px 0px -10px var(--primary), 20px -20px -0px -10px var(--primary),
-    -20px 20px 0px -10px var(--primary), 0px 0px 0px 10px var(--secondary),
-    5px 5px 15px 5px rgba(0, 0, 0, 0);
   /* border: 1px solid var(--secondary); */
-  padding: 1.5rem 2rem;
+  -webkit-box-shadow: -15px 25px 0px -10px var(--primary),
+    20px -20px 0px -20px var(--primary), 20px -20px -0px -10px var(--primary),
+    -20px 20px 0px -10px var(--primary), 0px 0px 0px 5px var(--secondary),
+    25px 25px 15px 5px rgba(0, 0, 0, 0);
+
+  box-shadow: -15px 25px 0px -10px var(--primary),
+    20px -20px 0px -20px var(--primary), 20px -20px -0px -10px var(--primary),
+    -20px 20px 0px -10px var(--primary), 0px 0px 0px 5px var(--secondary),
+    25px 25px 15px 5px rgba(0, 0, 0, 0);
+  padding: 1rem 1.5rem;
 `;

@@ -9,8 +9,8 @@ const GlobalStyle = createGlobalStyle`
   --box-shadow-secondary: rgba(105, 179, 172, 0.5);
   --font-primary: "Futura PT";
   --font-secondary: "Operator Mono";
-  --font-title-size: 4rem;
-  --font-title-weight: 700;
+  --font-title-size: 3rem;
+  --font-title-weight: 400;
   --font-text-size: 1.6rem;
   --font-text-weight: 300;
 }
