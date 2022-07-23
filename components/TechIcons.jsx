@@ -30,7 +30,7 @@ const TechIconRow = styled.div`
 `;
 
 const TechIconStyles = {
-  height: "50px",
+  height: "2.7rem",
   width: "auto",
   filter:
     "invert(71%) sepia(30%) saturate(475%) hue-rotate(125deg) brightness(88%) contrast(84%)",

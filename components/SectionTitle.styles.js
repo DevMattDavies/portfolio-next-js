@@ -7,7 +7,9 @@ export const SectionTitle = styled.h1`
   color: var(--highlight);
   font-style: italic;
   margin-bottom: 1rem;
-  box-shadow: 10px 10px var(--box-shadow-secondary);
+  -webkit-box-shadow: 8px 8px var(--box-shadow-secondary);
+  -moz-box-shadow: 8px 8px var(--box-shadow-secondary);
+  box-shadow: 8px 8px var(--box-shadow-secondary);
   border: 1px solid var(--secondary);
   width: max-content;
   padding: 0.5rem 1rem;
