@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { SplashMenuContainer } from "./Containers.styles";
 
-const MenuItem = styled.h1`
+const MenuItem = styled.a`
   color: var(--secondary);
   font-family: var(--font-primary);
   font-size: 5rem;
@@ -9,14 +9,32 @@ const MenuItem = styled.h1`
   -webkit-text-stroke: 2px var(--secondary);
   -webkit-text-fill-color: transparent;
   text-align: right;
+  text-decoration: none;
+
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+
+  background: linear-gradient(
+    to right,
+    var(--secondary),
+    var(--secondary) 50%,
+    transparent 50%
+  );
+
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 100%;
+  background-position: 100%;
+
+  transition: background-position 800ms ease;
 
   &:hover {
-    color: var(--secondary);
-    -webkit-text-fill-color: var(--secondary);
     cursor: pointer;
+    background-position: 0 100%;
   }
 `;
-
 
 function SplashMenu() {
   return (
@@ -30,4 +48,4 @@ function SplashMenu() {
   );
 }
 
-export default SplashMenu
+export default SplashMenu;

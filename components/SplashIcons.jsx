@@ -22,7 +22,6 @@ const StyledIcon = styled.a`
     color: var(--highlight);
     cursor: pointer;
   }
-
 `;
 
 function SplashIcons() {
@@ -30,13 +29,28 @@ function SplashIcons() {
     <IconContainer>
       <SplashIconLine style={{ margin: "0 0 5px 0" }} />
       <StyledIcon>
-        <TwitterIcon fontSize="large" />
+        <TwitterIcon
+          onClick={() => {
+            window.open("https://twitter.com/DevMattDavies");
+          }}
+          fontSize="large"
+        />
       </StyledIcon>
       <StyledIcon>
-        <LinkedInIcon fontSize="large" />
+        <LinkedInIcon
+          onClick={() => {
+            window.open("https://www.linkedin.com/in/devmattdavies/");
+          }}
+          fontSize="large"
+        />
       </StyledIcon>
       <StyledIcon>
-        <GitHubIcon fontSize="large" />
+        <GitHubIcon
+          onClick={() => {
+            window.open("https://github.com/DevMattDavies");
+          }}
+          fontSize="large"
+        />
       </StyledIcon>
       <SplashIconLine style={{ margin: "10px 0 0 0" }} />
     </IconContainer>
