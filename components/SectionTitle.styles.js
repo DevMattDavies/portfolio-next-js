@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const TitleArea = styled.div`
   max-width: 100%;
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   flex-shrink: 0;
   white-space: nowrap;
 

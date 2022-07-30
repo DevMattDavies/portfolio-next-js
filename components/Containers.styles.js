@@ -1,4 +1,4 @@
-import { tabUnstyledClasses } from "@mui/base";
+
 import styled from "styled-components";
 
 export const PageContentContainer = styled.div`
@@ -7,7 +7,7 @@ export const PageContentContainer = styled.div`
   width: 90vw;
   height: 100%;
   margin-left: 10vw;
-`
+`;
 
 export const SplashContainer = styled.div`
   display: flex;
@@ -18,9 +18,9 @@ export const SplashContainer = styled.div`
 export const SectionContainer = styled.div`
   display: flex;
   flex-direction: column;
-  /* height: 100vh; */
-  width: 90%;
+  width: 85%;
   padding: 10rem 0;
+  margin: 0 auto;
 
   @media (min-width: 60rem) {
     max-width: 70rem;
@@ -65,4 +65,15 @@ export const RightTitleContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: flex-end;
-`
+`;
+
+// example setup for each page
+
+function Example() {
+  return (
+    <OuterDiv>
+      <InnerDivLeft>{/* Custom components here */}</InnerDivLeft>
+      <InnerDivRight>{/* Custom copmonents here */}</InnerDivRight>
+    </OuterDiv>
+  );
+}
