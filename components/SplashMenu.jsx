@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styled from "styled-components";
 import { SplashMenuContainer } from "./Containers.styles";
 
@@ -10,6 +11,8 @@ const MenuItem = styled.a`
   -webkit-text-fill-color: transparent;
   text-align: right;
   text-decoration: none;
+  position: relative;
+  z-index: 10;
 
   position: relative;
   display: inline-block;
@@ -39,10 +42,18 @@ const MenuItem = styled.a`
 function SplashMenu() {
   return (
     <SplashMenuContainer>
-      <MenuItem>About.</MenuItem>
-      <MenuItem>Tech Stack.</MenuItem>
-      <MenuItem>Projects.</MenuItem>
-      <MenuItem>Contact.</MenuItem>
+      <Link href="#about">
+        <MenuItem>About.</MenuItem>
+      </Link>
+      <Link href="#techstack">
+        <MenuItem>Tech Stack.</MenuItem>
+      </Link>
+      <Link href="#projects">
+        <MenuItem>Projects.</MenuItem>
+      </Link>
+      <Link href="#contact">
+        <MenuItem>Contact.</MenuItem>
+      </Link>
       <MenuItem>CV.</MenuItem>
     </SplashMenuContainer>
   );

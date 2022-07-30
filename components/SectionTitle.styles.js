@@ -3,10 +3,14 @@ import styled from "styled-components";
 export const TitleArea = styled.div`
   max-width: 100%;
   display: flex;
-  /* align-items: center; */
+  align-items: center;
+  margin: 0 auto;
   flex-shrink: 0;
   white-space: nowrap;
 
+  @media screen and (min-width: 60rem) {
+    margin: 0;
+  }
 `;
 
 export const SectionTitle = styled.h1`
@@ -14,7 +18,6 @@ export const SectionTitle = styled.h1`
   font-size: var(--font-title-size);
   font-weight: var(--font-title-weight);
   color: var(--highlight);
-  /* font-style: italic; */
   text-transform: uppercase;
   margin-bottom: 1rem;
   -webkit-box-shadow: 8px 8px var(--box-shadow-secondary);

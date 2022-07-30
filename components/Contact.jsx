@@ -12,13 +12,11 @@ const ContactSectionContentContainer = styled(SectionContentContainer)`
 
 function Contact() {
   return (
-    <SectionContainer>
+    <SectionContainer id="contact">
       <RightTitleContainer>
         <SectionTitle>Get in touch</SectionTitle>
       </RightTitleContainer>
-      <ContactSectionContentContainer>
-        
-      </ContactSectionContentContainer>
+      <ContactSectionContentContainer></ContactSectionContentContainer>
     </SectionContainer>
   );
 }

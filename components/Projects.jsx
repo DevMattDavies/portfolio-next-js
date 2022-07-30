@@ -2,10 +2,9 @@ import styled from "styled-components";
 import Image from "next/future/image";
 import Slides from "../data/slides/SlidesData";
 import { SectionContainer, SectionContentContainer } from "./Containers.styles";
-import { SectionTitle } from "../components/SectionTitle.styles";
+import { SectionTitle, TitleArea } from "../components/SectionTitle.styles";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css/skyblue";
-// import "@splidejs/react-splide/css/core";
 
 const SlideContainer = styled.div`
   display: flex;
@@ -95,8 +94,10 @@ const ProjectText = styled.p`
 
 function Projects() {
   return (
-    <SectionContainer>
+    <SectionContainer id="projects">
+      <TitleArea>
         <SectionTitle>Projects</SectionTitle>
+      </TitleArea>
       <SectionContentContainer>
         <Splide
           aria-label="My Projects"
@@ -111,7 +112,6 @@ function Projects() {
             pauseOnHover: true,
             width: "100%",
             height: "100%",
-            // gap: "1rem",
             drag: true,
           }}
         >
@@ -126,7 +126,11 @@ function Projects() {
                     <SlideIconContainer>
                       {Object.values(slide.icons).map((icon) => {
                         return (
-                          <Image src={icon} style={ProjectIconStyle}></Image>
+                          <Image
+                            src={icon}
+                            style={ProjectIconStyle}
+                            priority
+                          ></Image>
                         );
                       })}
                     </SlideIconContainer>

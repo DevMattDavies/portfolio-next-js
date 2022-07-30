@@ -3,8 +3,9 @@ import {
   SectionContainer,
   SectionContentContainer,
   RightTitleContainer,
+  InnerSectionContainer,
 } from "./Containers.styles";
-import { SectionTitle } from "../components/SectionTitle.styles";
+import { SectionTitle, TitleArea } from "../components/SectionTitle.styles";
 import TechIcons from "./TechIcons";
 import TechText from "./TechText";
 
@@ -18,9 +19,11 @@ const TechSectionContentContainer = styled(SectionContentContainer)`
 
 function TechStack() {
   return (
-    <SectionContainer>
+    <SectionContainer id="techstack">
       <RightTitleContainer>
-        <SectionTitle>Tech Stack</SectionTitle>
+        <TitleArea>
+          <SectionTitle>Tech Stack</SectionTitle>
+        </TitleArea>
       </RightTitleContainer>
       <TechSectionContentContainer>
         <TechIcons />

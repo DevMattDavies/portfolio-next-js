@@ -1,10 +1,10 @@
 import { SplashContainer } from "../components/Containers.styles";
-
+import { useInView } from "react-intersection-observer";
 import SplashMenu from "./SplashMenu";
 
-function Splash() {
+function Splash({ inView, myRef }) {
   return (
-    <SplashContainer>
+    <SplashContainer id="splash" ref={myRef}>
       <SplashMenu />
     </SplashContainer>
   );
