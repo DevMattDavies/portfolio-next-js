@@ -12,6 +12,7 @@ const GlobalStyle = createGlobalStyle`
   --font-title-weight: 400;
   --font-text-size: 1.6rem;
   --font-text-weight: 300;
+ 
 }
 
 @font-face {
@@ -49,6 +50,18 @@ body {
   font-size: calc(60% + 0.8vmin);
   background-color: var(--primary);
   scroll-behavior: smooth;
+  height: 100%;
+  overflow: hidden;
+
+  @media screen and (min-width: 420px) {
+  overflow: scroll;
+  height: auto;
+  }
+  
+
+  height: 100%;
+  overflow: hidden;
+
 }
 
 a {
@@ -66,4 +79,4 @@ a {
 
 `;
 
-export default GlobalStyle
+export default GlobalStyle;

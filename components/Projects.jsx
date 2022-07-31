@@ -5,9 +5,16 @@ import { SectionContainer, SectionContentContainer } from "./Containers.styles";
 import { SectionTitle, TitleArea } from "../components/SectionTitle.styles";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css/skyblue";
+import { useInView } from "react-intersection-observer";
+import { useEffect } from "react";
+
+const SlideSectionContainer = styled.div`
+  max-width: 100%;
+`;
 
 const SlideContainer = styled.div`
   display: flex;
+  flex-direction: column;
   width: 95%;
   height: 100%;
   gap: 2rem;
@@ -17,30 +24,47 @@ const SlideContainer = styled.div`
   &:hover {
     cursor: grab;
   }
+
+  @media screen and (min-width: 420px) {
+    flex-direction: row;
+  }
 `;
 
 const LeftSlideContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 100%;
   height: 100%;
   gap: 2rem;
   margin-top: 1rem;
+
+  @media screen and (min-width: 420px) {
+    width: 50%;
+  }
 `;
 const RightSlideContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 100%;
   gap: 1rem;
+
+  @media screen and (min-width: 420px) {
+    width: 50%;
+  }
 `;
 
 const SlideIconContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 1.2rem;
-  padding-left: 1rem;
-  max-width: 90%;
+  justify-content: center;
+  width: 100%;
   position: relative;
+
+  @media screen and (min-width: 420px) {
+    padding-left: 1rem;
+    max-width: 90%;
+  }
 `;
 
 const ProjectImageWrapper = styled.div`
@@ -92,65 +116,80 @@ const ProjectText = styled.p`
   font-size: 1.2rem;
 `;
 
-function Projects() {
+function Projects({ props }) {
+  const { ref: projectsRef, inView } = useInView({
+    threshold: 0.5,
+  });
+
+  useEffect(() => {
+    if (inView === true) {
+      props.setCurrentSection("#projects");
+    }
+  });
+
   return (
-    <SectionContainer id="projects">
-      <TitleArea>
-        <SectionTitle>Projects</SectionTitle>
-      </TitleArea>
-      <SectionContentContainer>
-        <Splide
-          aria-label="My Projects"
-          options={{
-            type: "loop",
-            rewind: true,
-            rewindByDrag: true,
-            autoplay: true,
-            interval: 10000,
-            speed: 2000,
-            arrows: false,
-            pauseOnHover: true,
-            width: "100%",
-            height: "100%",
-            drag: true,
-          }}
-        >
-          {Slides.map((slide) => {
-            return (
-              <SplideSlide>
-                <SlideContainer>
-                  <LeftSlideContainer>
-                    <ProjectImageWrapper>
-                      <Image src={slide.src} style={ProjectImageStyle}></Image>
-                    </ProjectImageWrapper>
-                    <SlideIconContainer>
-                      {Object.values(slide.icons).map((icon) => {
-                        return (
-                          <Image
-                            src={icon}
-                            style={ProjectIconStyle}
-                            priority
-                          ></Image>
-                        );
-                      })}
-                    </SlideIconContainer>
-                  </LeftSlideContainer>
-                  <RightSlideContainer>
-                    <ProjectTitle>{slide.title}</ProjectTitle>
-                    <ProjectLink href="#" target="_blank">
-                      {slide.url}
-                    </ProjectLink>
-                    <ProjectLink href="#" target="_blank">
-                      {slide.github}
-                    </ProjectLink>
-                    <ProjectText>{slide.text}</ProjectText>
-                  </RightSlideContainer>
-                </SlideContainer>
-              </SplideSlide>
-            );
-          })}
-        </Splide>
-      </SectionContentContainer>
+    <SectionContainer id="projects" ref={projectsRef}>
+      <SlideSectionContainer>
+        <TitleArea>
+          <SectionTitle>Projects</SectionTitle>
+        </TitleArea>
+        <SectionContentContainer>
+          <Splide
+            aria-label="My Projects"
+            options={{
+              type: "loop",
+              rewind: true,
+              rewindByDrag: true,
+              autoplay: true,
+              interval: 10000,
+              speed: 2000,
+              arrows: false,
+              pauseOnHover: true,
+              width: "100%",
+              height: "100%",
+              drag: true,
+            }}
+          >
+            {Slides.map((slide) => {
+              return (
+                <SplideSlide>
+                  <SlideContainer>
+                    <LeftSlideContainer>
+                      <ProjectImageWrapper>
+                        <Image
+                          src={slide.src}
+                          style={ProjectImageStyle}
+                        ></Image>
+                      </ProjectImageWrapper>
+                      <SlideIconContainer>
+                        {Object.values(slide.icons).map((icon) => {
+                          return (
+                            <Image
+                              src={icon}
+                              style={ProjectIconStyle}
+                              priority
+                            ></Image>
+                          );
+                        })}
+                      </SlideIconContainer>
+                    </LeftSlideContainer>
+                    <RightSlideContainer>
+                      <ProjectTitle>{slide.title}</ProjectTitle>
+                      <ProjectLink href="#" target="_blank">
+                        {slide.url}
+                      </ProjectLink>
+                      <ProjectLink href="#" target="_blank">
+                        {slide.github}
+                      </ProjectLink>
+                      <ProjectText>{slide.text}</ProjectText>
+                    </RightSlideContainer>
+                  </SlideContainer>
+                </SplideSlide>
+              );
+            })}
+          </Splide>
+        </SectionContentContainer>
+      </SlideSectionContainer>
     </SectionContainer>
   );
 }

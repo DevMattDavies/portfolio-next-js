@@ -4,11 +4,24 @@ import { SectionTitle, TitleArea } from "../components/SectionTitle.styles";
 import AboutText from "./AboutText";
 import ProfileImage from "./ProfileImage";
 import SubtitleLine from "./SubtitleLine";
+import { useEffect } from "react";
 
-function About() {
+import { useInView } from "react-intersection-observer";
+
+function About({ props }) {
+  const { ref: aboutRef, inView } = useInView({
+    threshold: 0.5,
+  });
+
+  useEffect(() => {
+    if (inView === true) {
+      props.setCurrentSection("#about");
+    }
+  });
+
   return (
     <>
-      <SectionContainer id="about">
+      <SectionContainer id="about" ref={aboutRef}>
         <TitleArea>
           <SectionTitle>About Me</SectionTitle>
         </TitleArea>

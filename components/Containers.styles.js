@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const PageContentContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 70vw;
+  width: 90vw;
   height: 100%;
   margin-left: 10vw;
   gap: 3rem;
@@ -12,8 +12,9 @@ export const PageContentContainer = styled.div`
   margin: 0 auto;
 
   @media screen and (min-width: 60rem) {
-    width: 70vw;
-    /* margin: 0 auto; */
+    width: 85vw;
+    margin: 0 auto;
+    margin-left: 10vw;
   }
 `;
 
@@ -32,10 +33,11 @@ export const SectionContainer = styled.div`
   min-height: 100vh;
   justify-content: center;
   position: relative;
+  padding: 0 3rem;
 
   @media (min-width: 60rem) {
-    max-width: 70rem;
-    margin: 0 auto;
+    min-width: 100%;
+    max-width: 90rem;
   }
 `;
 
@@ -83,14 +85,16 @@ export const PageArrowsContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  width: 10vw;
+  width: 5vw;
   height: 100vh;
   position: fixed;
   margin-left: 50vw;
   top: 0;
 
-  @media screen and (min-width: 60rem) {
-    margin-left: 90vw;
+  @media screen and (min-width: 450px) {
+    margin-left: 95vw;
+    /* justify-content: center; */
+    /* gap: 2rem; */
   }
 `;
 
@@ -99,13 +103,13 @@ export const SplashArrowContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
-  width: 10vw;
+  width: 5vw;
   height: 100vh;
   position: fixed;
   margin-left: 50vw;
   top: 0;
 
-  @media screen and (min-width: 60rem) {
-    margin-left: 90vw;
+  @media screen and (min-width: 450px) {
+    margin-left: 95vw;
   }
 `;

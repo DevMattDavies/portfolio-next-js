@@ -22,6 +22,7 @@
     "react-dom": "18.2.0",
     "react-intersection-observer": "^9.4.0",
     "react-transition-group": "^1.2.1",
+    "react-update-url-on-scroll": "^3.5.0",
     "styled-components": "^5.3.5"
   },
   "devDependencies": {

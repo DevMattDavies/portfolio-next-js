@@ -1,29 +1,98 @@
 import styled from "styled-components";
-import ExpandLessIcon from "@mui/icons-material/ExpandLess";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { SplashArrowContainer } from "./Containers.styles";
+import KeyboardDoubleArrowUpIcon from "@mui/icons-material/KeyboardDoubleArrowUp";
+import KeyboardDoubleArrowDownIcon from "@mui/icons-material/KeyboardDoubleArrowDown";
 
-const ArrowStyle = {
-  width: "5rem",
-  height: "5rem",
+import { SplashArrowContainer } from "./Containers.styles";
+import Link from "next/link";
+
+import { useState } from "react";
+
+const ArrowNormalStyle = {
+  width: "4rem",
+  height: "4rem",
   color: "var(--secondary)",
   display: "flex",
   alignItems: "flex-end",
 };
 
+const ArrowHoverStyle = {
+  width: "4rem",
+  height: "4rem",
+  color: "var(--highlight)",
+  display: "flex",
+  alignItems: "flex-end",
+};
+
 export function SplashArrow() {
+  const [isUpHovering, setIsUpHovering] = useState(false);
+  const [isDownHovering, setIsDownHovering] = useState(false);
+
+  const handleUpArrowMouseEnter = () => {
+    setIsUpHovering(true);
+  };
+
+  const handleUpArrowMouseLeave = () => {
+    setIsUpHovering(false);
+  };
+
+  const handleDownArrowMouseEnter = () => {
+    setIsDownHovering(true);
+  };
+
+  const handleDownArrowMouseLeave = () => {
+    setIsDownHovering(false);
+  };
+
   return (
     <SplashArrowContainer>
-      <ExpandMoreIcon style={ArrowStyle} />
+      <KeyboardDoubleArrowDownIcon
+        style={isDownHovering ? ArrowHoverStyle : ArrowNormalStyle}
+        onMouseEnter={handleDownArrowMouseEnter}
+        onMouseLeave={handleDownArrowMouseLeave}
+      />
     </SplashArrowContainer>
   );
 }
 
-export function NavArrows() {
+export function NavArrows({ previousSection, nextSection }) {
+  const [isUpHovering, setIsUpHovering] = useState(false);
+  const [isDownHovering, setIsDownHovering] = useState(false);
+
+  const handleUpArrowMouseEnter = () => {
+    setIsUpHovering(true);
+  };
+
+  const handleUpArrowMouseLeave = () => {
+    setIsUpHovering(false);
+  };
+
+  const handleDownArrowMouseEnter = () => {
+    setIsDownHovering(true);
+  };
+
+  const handleDownArrowMouseLeave = () => {
+    setIsDownHovering(false);
+  };
   return (
     <>
-      <ExpandLessIcon style={ArrowStyle} />
-      <ExpandMoreIcon style={ArrowStyle} />
+      <Link href={previousSection}>
+        <a>
+          <KeyboardDoubleArrowUpIcon
+            style={isUpHovering ? ArrowHoverStyle : ArrowNormalStyle}
+            onMouseEnter={handleUpArrowMouseEnter}
+            onMouseLeave={handleUpArrowMouseLeave}
+          />
+        </a>
+      </Link>
+      <Link href={nextSection}>
+        <a>
+          <KeyboardDoubleArrowDownIcon
+            style={isDownHovering ? ArrowHoverStyle : ArrowNormalStyle}
+            onMouseEnter={handleDownArrowMouseEnter}
+            onMouseLeave={handleDownArrowMouseLeave}
+          />
+        </a>
+      </Link>
     </>
   );
 }
