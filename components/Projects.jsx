@@ -8,6 +8,12 @@ import "@splidejs/react-splide/css/skyblue";
 import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
 
+const ProjectSectionContainer = styled(SectionContainer)`
+  @media screen and (min-width: 60rem) {
+    padding-left: 5rem;
+  }
+`;
+
 const SlideSectionContainer = styled.div`
   max-width: 100%;
 `;
@@ -63,7 +69,9 @@ const SlideIconContainer = styled.div`
 
   @media screen and (min-width: 60rem) {
     padding-left: 1rem;
-    max-width: 90%;
+    max-width: 70%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
   }
 `;
 
@@ -128,7 +136,7 @@ function Projects({ props }) {
   });
 
   return (
-    <SectionContainer id="projects" ref={projectsRef}>
+    <ProjectSectionContainer id="projects" ref={projectsRef}>
       <SlideSectionContainer>
         <TitleArea>
           <SectionTitle>Projects</SectionTitle>
@@ -190,7 +198,7 @@ function Projects({ props }) {
           </Splide>
         </SectionContentContainer>
       </SlideSectionContainer>
-    </SectionContainer>
+    </ProjectSectionContainer>
   );
 }
 

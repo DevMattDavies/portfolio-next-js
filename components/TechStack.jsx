@@ -23,7 +23,7 @@ const TechSectionContentContainer = styled(SectionContentContainer)`
 
 const TechSectionContainer = styled(SectionContainer)`
   @media screen and (min-width: 60rem) {
-    padding-right: 10rem;
+    padding-right: 5rem;
   }
 `;
 
