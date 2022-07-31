@@ -10,12 +10,12 @@ function Splash({ props }) {
 
   useEffect(() => {
     if (inView === true) {
-      props.setCurrentSection("#splash");
+      props.setCurrentSection("#home");
     }
   });
 
   return (
-    <SplashContainer id="splash" ref={splashRef}>
+    <SplashContainer id="home" ref={splashRef}>
       <SplashMenu />
     </SplashContainer>
   );

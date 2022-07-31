@@ -1,4 +1,4 @@
-export const aboutTextContent = `I love designing things for the web. Originally coming
+export const aboutTextContent = `I love designing things for the web. Originally
   from a project management background, I immediately fell in love
   with the balance between logic and art that web design demands.
   A product of an intensive bootcamp - now a full-stack developer who

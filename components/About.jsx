@@ -8,6 +8,12 @@ import { useEffect } from "react";
 
 import { useInView } from "react-intersection-observer";
 
+const AboutSectionContainer = styled(SectionContainer)`
+  @media screen and (min-width: 60rem) {
+    padding-left: 10rem;
+  }
+`;
+
 function About({ props }) {
   const { ref: aboutRef, inView } = useInView({
     threshold: 0.5,
@@ -21,7 +27,7 @@ function About({ props }) {
 
   return (
     <>
-      <SectionContainer id="about" ref={aboutRef}>
+      <AboutSectionContainer id="about" ref={aboutRef}>
         <TitleArea>
           <SectionTitle>About Me</SectionTitle>
         </TitleArea>
@@ -29,7 +35,7 @@ function About({ props }) {
           <AboutText />
           <ProfileImage />
         </SectionContentContainer>
-      </SectionContainer>
+      </AboutSectionContainer>
     </>
   );
 }

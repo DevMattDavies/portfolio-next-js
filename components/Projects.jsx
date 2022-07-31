@@ -25,7 +25,7 @@ const SlideContainer = styled.div`
     cursor: grab;
   }
 
-  @media screen and (min-width: 420px) {
+  @media screen and (min-width: 60rem) {
     flex-direction: row;
   }
 `;
@@ -38,7 +38,7 @@ const LeftSlideContainer = styled.div`
   gap: 2rem;
   margin-top: 1rem;
 
-  @media screen and (min-width: 420px) {
+  @media screen and (min-width: 60rem) {
     width: 50%;
   }
 `;
@@ -48,7 +48,7 @@ const RightSlideContainer = styled.div`
   width: 100%;
   gap: 1rem;
 
-  @media screen and (min-width: 420px) {
+  @media screen and (min-width: 60rem) {
     width: 50%;
   }
 `;
@@ -61,7 +61,7 @@ const SlideIconContainer = styled.div`
   width: 100%;
   position: relative;
 
-  @media screen and (min-width: 420px) {
+  @media screen and (min-width: 60rem) {
     padding-left: 1rem;
     max-width: 90%;
   }

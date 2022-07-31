@@ -23,18 +23,14 @@ function HomePage() {
 
   const [currentSection, setCurrentSection] = useState("#splash");
 
-  console.log(`current section: ${currentSection} 
-  next section: ${nextSection} 
-  prev section: ${previousSection}`);
-
   useEffect(() => {
     switch (currentSection) {
-      case "#splash":
+      case "#home":
         setPreviousSection("");
         setNextSection("#about");
         break;
       case "#about":
-        setPreviousSection("#splash");
+        setPreviousSection("#home");
         setNextSection("#techstack");
         break;
       case "#techstack":
@@ -47,7 +43,7 @@ function HomePage() {
         break;
       case "#contact":
         setPreviousSection("#projects");
-        setNextSection("");
+        setNextSection("#home");
         break;
     }
   });
@@ -55,14 +51,16 @@ function HomePage() {
   const sectionProps = {
     currentSection,
     setCurrentSection,
+    nextSection,
     setNextSection,
+    previousSection,
     setPreviousSection,
   };
 
   return (
     <>
       <GlobalStyle />
-      <SplashIcons />
+      <SplashIcons props={sectionProps} />
       <Splash props={sectionProps} />
       <AppContainer>
         <PageContentContainer>
@@ -71,29 +69,6 @@ function HomePage() {
           <Projects props={sectionProps} />
           <Contact props={sectionProps} />
         </PageContentContainer>
-        {currentSection === "#splash" && (
-          <Link href="#about">
-            <a>
-              <SplashArrow />
-            </a>
-          </Link>
-        )}
-
-        {currentSection === "#contact" && (
-          <Link href="#projects">
-            <a>
-              <SplashArrow />
-            </a>
-          </Link>
-        )}
-        {currentSection === "#splash" ? null : (
-          <PageArrowsContainer>
-            <NavArrows
-              previousSection={previousSection}
-              nextSection={nextSection}
-            />
-          </PageArrowsContainer>
-        )}
       </AppContainer>
     </>
   );

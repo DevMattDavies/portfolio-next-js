@@ -5,16 +5,15 @@ export const PageContentContainer = styled.div`
   flex-direction: column;
   width: 90vw;
   height: 100%;
-  margin-left: 10vw;
-  gap: 3rem;
+  gap: 5rem;
   justify-content: center;
   align-items: center;
-  margin: 0 auto;
+  margin-left: 10vw;
+  padding: 0 3rem;
 
   @media screen and (min-width: 60rem) {
-    width: 85vw;
+    width: 90vw;
     margin: 0 auto;
-    margin-left: 10vw;
   }
 `;
 
@@ -33,7 +32,6 @@ export const SectionContainer = styled.div`
   min-height: 100vh;
   justify-content: center;
   position: relative;
-  padding: 0 3rem;
 
   @media (min-width: 60rem) {
     min-width: 100%;
@@ -45,12 +43,16 @@ export const IconContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  width: 10vw;
+  justify-content: space-between;
+  width: 18vw;
   height: 100vh;
   position: fixed;
   margin-right: 10vw;
   top: 0;
+
+  @media screen and (min-width: 450px) {
+    width: 10vw;
+  }
 `;
 
 export const SplashMenuContainer = styled.div`

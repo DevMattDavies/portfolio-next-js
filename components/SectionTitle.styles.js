@@ -8,7 +8,7 @@ export const TitleArea = styled.div`
   flex-shrink: 0;
   white-space: nowrap;
 
-  @media screen and (min-width: 800px) {
+  @media screen and (min-width: 60rem) {
     margin: 0;
   }
 `;

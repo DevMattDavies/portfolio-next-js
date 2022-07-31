@@ -5,7 +5,7 @@ import { SplashMenuContainer } from "./Containers.styles";
 const MenuItem = styled.a`
   color: var(--secondary);
   font-family: var(--font-primary);
-  font-size: 5rem;
+  font-size: 4rem;
   font-weight: 700;
   -webkit-text-stroke: 2px var(--secondary);
   -webkit-text-fill-color: transparent;
@@ -36,6 +36,10 @@ const MenuItem = styled.a`
   &:hover {
     cursor: pointer;
     background-position: 0 100%;
+  }
+
+  @media screen and (min-width: 450px) {
+    font-size: 5rem;
   }
 `;
 

@@ -8,91 +8,115 @@ import Link from "next/link";
 import { useState } from "react";
 
 const ArrowNormalStyle = {
-  width: "4rem",
-  height: "4rem",
+  width: "3rem",
+  height: "3rem",
   color: "var(--secondary)",
   display: "flex",
-  alignItems: "flex-end",
 };
 
 const ArrowHoverStyle = {
-  width: "4rem",
-  height: "4rem",
+  width: "3rem",
+  height: "3rem",
   color: "var(--highlight)",
   display: "flex",
-  alignItems: "flex-end",
 };
 
-export function SplashArrow() {
-  const [isUpHovering, setIsUpHovering] = useState(false);
-  const [isDownHovering, setIsDownHovering] = useState(false);
+const ArrowOuterContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex-shrink: none;
+  justify-items: center;
+  align-items: center;
+`;
 
+const UpArrowInnerContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  flex-shrink: none;
+  min-width: 100px;
+  min-height: 70px;
+`;
+
+const DownArrowInnerContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  flex-shrink: none;
+  min-width: 100px;
+  min-height: 70px;
+`;
+
+const ArrowTags = styled.p`
+  font-family: var(--font-secondary);
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--secondary);
+`;
+
+const SplashHR = styled.hr`
+  border: none;
+  border-bottom: 2px solid var(--secondary);
+  text-align: center;
+  color: var(--secondary);
+  width: 20%;
+  margin: 0 auto;
+`;
+
+export function NavArrows({ splashProps }) {
   const handleUpArrowMouseEnter = () => {
-    setIsUpHovering(true);
+    splashProps.setIsUpHovering(true);
   };
 
   const handleUpArrowMouseLeave = () => {
-    setIsUpHovering(false);
+    splashProps.setIsUpHovering(false);
   };
 
   const handleDownArrowMouseEnter = () => {
-    setIsDownHovering(true);
+    splashProps.setIsDownHovering(true);
   };
 
   const handleDownArrowMouseLeave = () => {
-    setIsDownHovering(false);
-  };
-
-  return (
-    <SplashArrowContainer>
-      <KeyboardDoubleArrowDownIcon
-        style={isDownHovering ? ArrowHoverStyle : ArrowNormalStyle}
-        onMouseEnter={handleDownArrowMouseEnter}
-        onMouseLeave={handleDownArrowMouseLeave}
-      />
-    </SplashArrowContainer>
-  );
-}
-
-export function NavArrows({ previousSection, nextSection }) {
-  const [isUpHovering, setIsUpHovering] = useState(false);
-  const [isDownHovering, setIsDownHovering] = useState(false);
-
-  const handleUpArrowMouseEnter = () => {
-    setIsUpHovering(true);
-  };
-
-  const handleUpArrowMouseLeave = () => {
-    setIsUpHovering(false);
-  };
-
-  const handleDownArrowMouseEnter = () => {
-    setIsDownHovering(true);
-  };
-
-  const handleDownArrowMouseLeave = () => {
-    setIsDownHovering(false);
+    splashProps.setIsDownHovering(false);
   };
   return (
-    <>
-      <Link href={previousSection}>
-        <a>
-          <KeyboardDoubleArrowUpIcon
-            style={isUpHovering ? ArrowHoverStyle : ArrowNormalStyle}
-            onMouseEnter={handleUpArrowMouseEnter}
-            onMouseLeave={handleUpArrowMouseLeave}
-          />
-        </a>
-      </Link>
-      <Link href={nextSection}>
-        <a>
-          <KeyboardDoubleArrowDownIcon
-            style={isDownHovering ? ArrowHoverStyle : ArrowNormalStyle}
-            onMouseEnter={handleDownArrowMouseEnter}
-            onMouseLeave={handleDownArrowMouseLeave}
-          />
-        </a>
-      </Link>
-    </>
+    <ArrowOuterContainer>
+      <UpArrowInnerContainer>
+        <Link href={splashProps.props.previousSection}>
+          <a>
+            <KeyboardDoubleArrowUpIcon
+              style={
+                splashProps.isUpHovering ? ArrowHoverStyle : ArrowNormalStyle
+              }
+              onMouseEnter={handleUpArrowMouseEnter}
+              onMouseLeave={handleUpArrowMouseLeave}
+            />
+          </a>
+        </Link>
+        <ArrowTags>
+          {splashProps.props.previousSection.slice(1).toUpperCase()}
+        </ArrowTags>
+      </UpArrowInnerContainer>
+      {/* <SplashHR></SplashHR> */}
+      <DownArrowInnerContainer>
+        <ArrowTags>
+          {splashProps.props.nextSection.slice(1).toUpperCase()}
+        </ArrowTags>
+        <Link href={splashProps.props.nextSection}>
+          <a>
+            <KeyboardDoubleArrowDownIcon
+              style={
+                splashProps.isDownHovering ? ArrowHoverStyle : ArrowNormalStyle
+              }
+              onMouseEnter={handleDownArrowMouseEnter}
+              onMouseLeave={handleDownArrowMouseLeave}
+            />
+          </a>
+        </Link>
+      </DownArrowInnerContainer>
+    </ArrowOuterContainer>
   );
 }

@@ -21,6 +21,12 @@ const TechSectionContentContainer = styled(SectionContentContainer)`
   }
 `;
 
+const TechSectionContainer = styled(SectionContainer)`
+  @media screen and (min-width: 60rem) {
+    padding-right: 10rem;
+  }
+`;
+
 function TechStack({ props }) {
   const { ref: techRef, inView } = useInView({
     threshold: 0.5,
@@ -33,7 +39,7 @@ function TechStack({ props }) {
   });
 
   return (
-    <SectionContainer id="techstack" ref={techRef}>
+    <TechSectionContainer id="techstack" ref={techRef}>
       <RightTitleContainer>
         <TitleArea>
           <SectionTitle>Tech Stack</SectionTitle>
@@ -43,7 +49,7 @@ function TechStack({ props }) {
         <TechIcons />
         <TechText />
       </TechSectionContentContainer>
-    </SectionContainer>
+    </TechSectionContainer>
   );
 }
 
